@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package com.pb.address;
+
+option java_multiple_files = true;
+
+// user address list response
+message AddressList {
+    repeated AddressInfo address_info = 1;
+}
+
+enum TRANSPORTATION_MODE {
+    TRANSPORTATION_MODE_SUSPEND = 0; // 未知, 当没有提供店铺信息和配送地址时的状态
+    TRANSPORTATION_MODE_2_HOURS_ARRIVE = 1;
+    TRANSPORTATION_MODE_INSIDE_FENCING = 2;
+    TRANSPORTATION_MODE_OUTSIDE_FENCING = 3;
+    TRANSPORTATION_MODE_TAKEOUT = 4;
+	TRANSPORTATION_SELF_DISTRIBUTION = 5;
+}
+
+enum ADDRESS_TYPE {
+    ADDRESS_TYPE_NORMAL = 0;
+    ADDRESS_TYPE_DEFAULT = 1;
+}
+
+message AddressInfo {
+    int32 id = 1; // 
+
+    string address_city = 2; // 城市
+    string address_detail = 3; // 具体详细地址
+    string address_choose = 4; // 地图上选择的地址
+    float address_longigute = 5;
+    float address_latitute = 6;
+    int32 address_province_code = 7; 
+    int32 address_city_code = 8;
+
+    TRANSPORTATION_MODE transportation_mode = 9;
+    repeated string transportation_description = 10; // 不同trasporationMode对应的配送描述
+
+    string name = 11;
+    string mobile = 12;
+
+    int32 shop_id = 13;
+
+    ADDRESS_TYPE address_type = 14;
+}
+
+// fetch transportaionMode
+message AddressTransportationInfoRequest
+{
+    double longitute = 1;
+    double lantitute = 2;
+
+    int32 shop_id = 3; // 店铺ID
+}
+
+message AddressTransportationInfo
+{
+    TRANSPORTATION_MODE transportation_mode = 1;
+    repeated string transportation_description = 2; // 不同trasporationMode对应的配送描述
+}

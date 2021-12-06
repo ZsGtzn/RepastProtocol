@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package com.pb.shop;
+
+option java_multiple_files = true;
+
+// shop's all product
+message ProductList {
+    repeated ProductInfo product_info = 1;
+}
+
+message ProductInfo {
+    int32 p_id = 1;
+    string p_name = 2;
+    float p_now_price = 3;
+    float p_original_price = 4;
+    int32 p_num_of_buy = 5; // 销量
+    string p_pic_1 = 6; // 商品图片
+    repeated Specification specification = 7; // 规格
+    repeated int32 shelf_id = 8; // 商品所属分类
+}
+
+message Specification
+{
+    reserved 5;
+    int32 id = 1;
+    string pictures = 2;
+    int32 product_id = 3;
+    string specification_name = 4;
+    int32 stock = 6;
+    float specification_price = 7;
+}

@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package com.pb.search;
+
+option java_multiple_files = true;
+
+import "google/protobuf/any.proto";
+
+// get newShop/getKeyQuery.do
+message SearchCandidateRequest {
+    string type_name = 1; // 分类
+    string label = 2; // 子分类
+    string key = 3; // 搜索关键字
+    double longitute = 4;
+    double lantitute = 5;
+}
+
+//
+enum CANDIDATE_TYPE {
+    CANDIDATE_TYPE_NORMAL = 0; // 搜索补全
+    CANDIDATE_TYPE_SHOP = 1;
+    CANDIDATE_TYPE_PRODUCT = 2;
+}
+
+message SearchCandidateResponse
+{
+    repeated Candidate candidate = 1;
+}
+
+message Candidate {
+    CANDIDATE_TYPE candidate_type = 1;
+    repeated google.protobuf.Any details = 2; // CandidateShop or CandidateProduct or CandidateSearch
+}
+
+// 对应 CANDIDATE_TYPE_SHOP
+message CandidateShop
+{
+    int32 shop_id = 1;
+	double distance = 2;
+	string shop_name = 3;
+}
+
+// 对应 CANDIDATE_TYPE_PRODUCT
+message CandidateProduct
+{
+    int32 shop_id = 1;
+    int32 product_id = 2;
+	string product_name = 3;
+}
+
+// 对应 CANDIDATE_TYPE_NORMAL
+message CandidateSearch
+{
+    string content = 1;
+    int32 amount = 2; // 搜索的key为content时, 搜索结果的数量
+}

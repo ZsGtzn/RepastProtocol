@@ -1,0 +1,8 @@
+# generate java class at directory ../FreeGoShop/server_logic/src/main/java from echo.proto, shop.proto
+./protoc-3.17.3-win64/bin/protoc echo.proto shop.proto --java_out=../FreeGoShop/server_logic/src/main/java
+
+# generate js class at directory ../FreeGoShop/protocols_js from echo.proto, shop.proto
+./protoc-3.17.3-win64/bin/protoc echo.proto shop.proto --js_out=import_style=commonjs,binary:../FreeGoShop/protocols_js
+
+# generate java and js protocol at directory java and js
+node ./utils/generateJavaAndJs.js

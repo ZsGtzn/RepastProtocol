@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package com.pb.search;
+
+option java_multiple_files = true;
+
+import "google/protobuf/any.proto";
+
+message SearchRequest {
+    string query = 1;
+    int32 page_number = 2;
+    int32 result_per_page = 3;
+
+    enum Corpus {
+        option allow_alias = true;
+            UNIVERSAL = 0;
+            WEB = 1;
+            IMAGES = 2;
+            LOCAL = 3;
+            NEWS = 4;
+            PRODUCTS = 5;
+            VIDEO = 6;
+            MOVIE = 6;
+    }
+    Corpus corpus = 4;
+}
+
+//
+message SearchResponse {
+    repeated Result results = 1;
+    ErrorStatus error = 2;
+}
+
+message Result {
+  string url = 1;
+  string title = 2;
+  repeated string snippets = 3;
+}
+
+message ErrorStatus {
+  string message = 1;
+  repeated google.protobuf.Any details = 2;
+}
+
+//
+message NetworkErrorDetails {
+    string msg = 1;
+}
+
+message LogicErrorDetails {
+    string msg = 1;
+}
+
+
+
