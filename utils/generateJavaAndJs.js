@@ -51,10 +51,6 @@ javaOutputDir = javaOutputDir.replace(/\\/g, "/");
 jsOutputDir = jsOutputDir.replace(/\\/g, "/");
 
 //
-console.log(`javaOutputDir: ${javaOutputDir}`)
-console.log(`jsOutputDir: ${jsOutputDir}`)
-
-//
 if (!fs.existsSync(javaOutputDir))
 {
     fs.mkdirSync(javaOutputDir)
@@ -108,7 +104,11 @@ function runProtocCommand(command) {
         shell: 'C:\\Program Files\\Git\\bin\\bash.exe'
     }, err => {
         if (err) {
-            console.log(`throw exception ${err.toString()}`)
+            console.error(`throw exception ${err.toString()}`)
+        }
+        else
+        {
+            console.log(`command: ${command} success`)
         }
     })
 }
@@ -126,8 +126,6 @@ const protocSourceArg = protoFileList.map(el => `--proto_path=${el.dir} ${el.fil
 //
 let commandJava = `./protoc-3.17.3-win64/bin/protoc ${protocSourceArg} --java_out=${javaOutputDir}`
 let commandJs = `./protoc-3.17.3-win64/bin/protoc ${protocSourceArg} --js_out=import_style=commonjs,binary:${jsOutputDir}`
-console.log(commandJava)
-console.log(commandJs)
 
 /**
  * run protoc command
