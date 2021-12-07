@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.pb.common;
+
+option java_multiple_files = true;
+
+enum ROOM_STATE {
+    ROOM_STATE_ALL = 0;
+    ROOM_STATE_EMPTY = 1;
+    ROOM_STATE_OCCUPY = 2;
+}
+
+message CommonResponse {
+    int32 code = 1;
+    string error = 2;
+}
