@@ -11,14 +11,12 @@ let jsOutputDir = path.resolve(__dirname, "../js");
 
 //
 let configFileName = process.argv[2];
-if (configFileName != null && configFileName != undefined)
-{
+if (configFileName != null && configFileName != undefined) {
     //
     configFileName = path.resolve(__dirname, `../customConfigs/${configFileName}`);
 
     //
-    if (!fs.existsSync(configFileName))
-    {
+    if (!fs.existsSync(configFileName)) {
         console.error(`${configFileName} not exist`);
 
         //
@@ -31,8 +29,7 @@ if (configFileName != null && configFileName != undefined)
         let configCotentJson = JSON.parse(configCotent)
 
         //
-        if (configCotentJson.javaOutputDir)
-        {
+        if (configCotentJson.javaOutputDir) {
             javaOutputDir = configCotentJson.javaOutputDir;
         }
         if (configCotentJson.jsOutputDir) {
@@ -50,9 +47,7 @@ if (configFileName != null && configFileName != undefined)
 javaOutputDir = javaOutputDir.replace(/\\/g, "/");
 jsOutputDir = jsOutputDir.replace(/\\/g, "/");
 
-//
-if (!fs.existsSync(javaOutputDir))
-{
+if (!fs.existsSync(javaOutputDir)) {
     fs.mkdirSync(javaOutputDir)
 }
 
@@ -65,23 +60,18 @@ if (!fs.existsSync(jsOutputDir)) {
  */
 let protoFileList = []
 
-function fetchProtoFiles(dir)
-{
+function fetchProtoFiles(dir) {
     const fileNameList = fs.readdirSync(dir);
-    for (let fileName of fileNameList)
-    {
+    for (let fileName of fileNameList) {
         //
         let filePath = path.resolve(dir, fileName);
 
         //
-        if (fs.lstatSync(filePath).isDirectory())
-        {
+        if (fs.lstatSync(filePath).isDirectory()) {
             fetchProtoFiles(filePath);
         }
-        else
-        {
-            if (fileName.slice(-6) == ".proto")
-            {
+        else {
+            if (fileName.slice(-6) == ".proto") {
                 protoFileList.push({
                     dir: dir.replace(/\\/g, "/"),
                     fileName: fileName,
@@ -106,8 +96,7 @@ function runProtocCommand(command) {
         if (err) {
             console.error(`throw exception ${err.toString()}`)
         }
-        else
-        {
+        else {
             console.log(`command: ${command} success`)
         }
     })
