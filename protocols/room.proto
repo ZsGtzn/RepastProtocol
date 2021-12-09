@@ -32,11 +32,14 @@ message FetchRoomListResponse
 
 message RoomBriefInfo
 {
-    int32 id = 1;
-    string name = 2;
-    string mobile = 3;
-    string description = 4;
+    int32 room_id = 1;
+    string room_name = 2;
+    string room_description = 3;
+    string room_capacity = 4;
     ROOM_STATE room_state = 5;
+    string customer_name = 6;
+    string customer_mobile = 7;
+    string customer_arrive_time = 8;
 }
 
 //
