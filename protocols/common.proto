@@ -6,6 +6,7 @@ enum ROOM_STATE {
     ROOM_STATE_ALL = 0;
     ROOM_STATE_EMPTY = 1;
     ROOM_STATE_OCCUPY = 2;
+    ROOM_STATE_ORDERD = 3;
 }
 
 message CommonResponse {

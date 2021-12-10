@@ -32,14 +32,20 @@ message FetchRoomListResponse
 
 message RoomBriefInfo
 {
-    int32 room_id = 1;
-    string room_name = 2;
-    string room_description = 3;
-    string room_capacity = 4;
-    ROOM_STATE room_state = 5;
-    string customer_name = 6;
-    string customer_mobile = 7;
-    string customer_arrive_time = 8;
+    int32 id = 1;
+    string name = 2;
+    string description = 3;
+    int32 capacity = 4;
+    ROOM_STATE state = 5;
+    repeated CustomerBriefInfo customer_info = 6;
+}
+
+message CustomerBriefInfo
+{
+    string name = 1;
+    string mobile = 2;
+    string arrive_time = 3;
+    int32 number = 4;
 }
 
 //
@@ -49,6 +55,30 @@ message FetchRoomDetailRequest
 }
 
 message FetchRoomDetailResponse
+{
+    int32 id = 1;
+    string name = 2;
+    string description = 3;
+    int32 capacity = 4;
+    ROOM_STATE state = 5;
+    repeated CustomerDetailInfo customer_detail_info = 6;
+}
+
+message CustomerDetailInfo
+{
+    string name = 1;
+    string mobile = 2;
+    string arrive_time = 3;
+    int32 number = 4;
+    int32 consume_times = 5; // 累计消费次数
+    int32 cancel_order_times = 6; // 退订次数
+    int32 consume_money_total_amount = 7; // 累计消费金额
+    int32 consume_one_person_money_amount = 8; // 人均消费
+    int32 consume_one_room_money_amount = 9; // 桌均消费
+    repeated DrinkInfo drinkInfo = 10; // 存酒信息
+}
+
+message DrinkInfo
 {
 
 }
