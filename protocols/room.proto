@@ -48,7 +48,7 @@ message CustomerBriefInfo
     int32 number = 4;
 }
 
-//
+// repast/fetchRoomInfo
 message FetchRoomDetailRequest
 {
     int32 id = 1;
@@ -83,4 +83,33 @@ message DrinkInfo
     int32 id = 1;
     string name = 2;
     int32 price = 3;
+}
+
+// repast/fetchCallerList
+message FetchCallerList
+{
+    string begin_time = 1;
+    string end_time = 2;
+    int32 size = 3;
+}
+
+message FetchCallerListResponse
+{
+    int32 total = 1;
+    int32 count = 2;
+    repeated CallerInfo caller_info = 6;
+}
+
+message CallerInfo
+{
+    string name = 1;
+    string mobile = 2;
+    int32 consume_times = 3; // 累计消费次数
+    int32 cancel_order_times = 4; // 退订次数
+    int32 consume_money_total_amount = 5; // 累计消费金额
+    int32 consume_one_person_money_amount = 6; // 人均消费
+    int32 consume_one_room_money_amount = 7; // 桌均消费
+    int32 call_times = 8; // 拨入次数
+    string latest_call_time = 9; // 最后一次拨入时间
+    repeated DrinkInfo drinkInfo = 10; // 存酒信息
 }
