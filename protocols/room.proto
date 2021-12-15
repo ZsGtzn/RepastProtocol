@@ -97,9 +97,11 @@ message DrinkInfo
 // repast/fetchCallerList
 message FetchCallerList
 {
-    string begin_time = 1;
-    string end_time = 2;
-    int32 size = 3;
+    string name = 1;
+    string mobile = 2;
+    string begin_time = 3;
+    string end_time = 4;
+    int32 size = 5;
 }
 
 message FetchCallerListResponse
@@ -121,5 +123,6 @@ message CallerInfo
     int32 consume_one_room_money_amount = 8; // 桌均消费
     int32 call_times = 9; // 拨入次数
     string latest_call_time = 10; // 最后一次拨入时间
-    repeated DrinkInfo drinkInfo = 11; // 存酒信息
+    string call_time = 11; // 拨入时间
+    repeated DrinkInfo drinkInfo = 12; // 存酒信息
 }
