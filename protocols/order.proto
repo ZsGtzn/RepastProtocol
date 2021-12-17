@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package com.pb;
+
+import "common.proto";
+
+// repast/fetchDishList
+message FetchDishListRequest
+{
+    DISH_TYPE dish_type = 1; // 类型
+    int64 id = 2; // id
+    string name = 3; // 名字
+}
+
+message FetchDishListResponse
+{
+    repeated DishInfo dishInfo = 1;
+}
+
+message DishInfo
+{
+    int64 id = 1;
+    string name = 2; // 名称
+    DISH_TYPE dish_type = 3; // 类别
+    float price = 4; // 价格
+    float discount = 5; // 折扣
+} 
+
+// repast/fetchOrderDishList
+message FetchOrderDishListRequest
+{
+    DISH_STATE dish_state = 1;
+}
+
+message FetchOrderDishListResponse
+{
+    repeated OrderDishInfo orderDishInfo = 1;
+}
+
+
+message OrderDishInfo
+{
+    int64 id = 1;
+    string name = 2;
+    int32 number = 3;
+    string remark = 4;
+    DISH_STATE dish_state = 5;
+}
+
+// repast/orderDish
+message OrderDishRequest
+{
+    int64 id = 1; // dish id
+    float number = 2; // 数量
+    string remark = 3; // 备注
+}
+
+// repast/updateDishState
+message UpdateDishStateRequest
+{
+    repeated int64 id = 1; // order dish id
+    DISH_STATE dish_state = 2; // 状态
+    string reason = 3; // 原因
+}

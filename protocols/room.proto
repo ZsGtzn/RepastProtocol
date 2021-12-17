@@ -7,17 +7,32 @@ import "common.proto";
 // repast/bookRoom
 message BookRoomRequest
 {
-    int32 id = 1;
-    string name = 2;
-    string mobile = 3;
-    int32 number = 4;
-    string description = 5;
+    int64 id = 1; // room id
+    string name = 2; // 姓名
+    string mobile = 3; // 电话
+    int32 number = 4; // 人数
+    string remark = 5; // 备注
+    string book_time = 6; // 预定时间
+    int64 take_order_person_id = 7; // 接单人 
 }
 
-// repast/unbookRoom
-message UnbookRoomRequest
+// repast/updateBookRoomInfo
+message UpdateBookRoomInfoRequest
 {
-    int32 id = 1;
+    int64 id = 1; // book id
+    string name = 2; // 姓名
+    string mobile = 3; // 电话
+    int32 number = 4; // 人数
+    string remark = 5; // 备注
+    string book_time = 6; // 预定时间
+    int64 take_order_person_id = 7; // 接单人 
+}
+
+// repast/updateRoomState
+message updateRoomStateRequest
+{
+    int64 id = 1; // book id
+    ROOM_STATE state = 2;
 }
 
 // repast/recordCaller
@@ -29,7 +44,9 @@ message RecordCallerRequest
 // repast/fetchRoomList
 message FetchRoomListRequest
 {
-    ROOM_STATE room_state = 1;
+    ROOM_STATE state = 1; // 包厢状态
+    MEAL_TIME_TYPE time_type = 2; // 就餐时间
+    int32 floor = 3; // 楼层
 }
 
 message FetchRoomListResponse
@@ -39,9 +56,9 @@ message FetchRoomListResponse
 
 message RoomBriefInfo
 {
-    int32 id = 1;
+    int64 id = 1;
     string name = 2;
-    string description = 3;
+    string remark = 3;
     int32 capacity = 4;
     ROOM_STATE state = 5;
     repeated CustomerBriefInfo customer_info = 6;
@@ -49,7 +66,7 @@ message RoomBriefInfo
 
 message CustomerBriefInfo
 {
-    int32 id = 1;
+    int64 id = 1;
     string name = 2;
     string mobile = 3;
     string arrive_time = 4;
@@ -59,22 +76,24 @@ message CustomerBriefInfo
 // repast/fetchRoomInfo
 message FetchRoomDetailRequest
 {
-    int32 id = 1;
+    int64 id = 1;
 }
 
 message FetchRoomDetailResponse
 {
-    int32 id = 1;
+    int64 id = 1;
     string name = 2;
-    string description = 3;
+    string remark = 3;
     int32 capacity = 4;
-    ROOM_STATE state = 5;
-    repeated CustomerDetailInfo customer_detail_info = 6;
+    ROOM_STATE state = 5; // 
+    MEAL_TIME_TYPE time_type = 6; // 就餐时间
+    int64 take_order_person_id = 7; // 接单人 
+    repeated CustomerDetailInfo customer_detail_info = 8;
 }
 
 message CustomerDetailInfo
 {
-    int32 id = 1;
+    int64 id = 1;
     string name = 2;
     string mobile = 3;
     string arrive_time = 4;
@@ -89,13 +108,13 @@ message CustomerDetailInfo
 
 message DrinkInfo
 {
-    int32 id = 1;
+    int64 id = 1;
     string name = 2;
     int32 price = 3;
 }
 
 // repast/fetchCallerList
-message FetchCallerList
+message FetchCallerListRequest
 {
     string name = 1;
     string mobile = 2;
@@ -113,7 +132,7 @@ message FetchCallerListResponse
 
 message CallerInfo
 {
-    int32 id = 1;
+    int64 id = 1;
     string name = 2;
     string mobile = 3;
     int32 consume_times = 4; // 累计消费次数
@@ -125,4 +144,34 @@ message CallerInfo
     string latest_call_time = 10; // 最后一次拨入时间
     string call_time = 11; // 拨入时间
     repeated DrinkInfo drinkInfo = 12; // 存酒信息
+}
+
+// fetchQueuedCustomerList
+message FetchQueuedCustomerListRequest
+{
+
+}
+
+message FetchQueuedCustomerListResponse
+{
+    repeated QueuedCustomerInfo queuedCustomerInfo = 1;
+}
+
+
+message QueuedCustomerInfo
+{
+    int64 id = 1;
+    string name = 2;
+    string mobile = 3;
+    int32 consume_times = 4; // 累计消费次数
+    int32 cancel_order_times = 5; // 退订次数
+    int32 consume_money_total_amount = 6; // 累计消费金额
+    int32 consume_one_person_money_amount = 7; // 人均消费
+    int32 consume_one_room_money_amount = 8; // 桌均消费
+    int32 call_times = 9; // 拨入次数
+    string latest_call_time = 10; // 最后一次拨入时间
+    string call_time = 11; // 拨入时间
+    string arrive_time = 12; // 到达时间
+    string number = 13; // 就餐人数
+    repeated DrinkInfo drinkInfo = 14; // 存酒信息
 }

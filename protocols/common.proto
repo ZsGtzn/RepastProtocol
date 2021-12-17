@@ -2,11 +2,43 @@ syntax = "proto3";
 
 package com.pb;
 
+enum MEAL_TIME_TYPE {
+    ROOM_TYPE_BREAKFAST = 0; // 早餐
+    ROOM_TYPE_LUNCH = 1; // 午餐
+    ROOM_TYPE_SUPPER = 2; // 晚餐
+}
+
 enum ROOM_STATE {
     ROOM_STATE_ALL = 0;
-    ROOM_STATE_EMPTY = 1;
-    ROOM_STATE_OCCUPY = 2;
-    ROOM_STATE_ORDERD = 3;
+    ROOM_STATE_LOCK = 1; // 锁台
+    ROOM_STATE_EMPTY = 2; // 空闲
+    ROOM_STATE_BOOK = 3; // 预定
+    ROOM_STATE_CONFIRM = 4; // 已确认
+    ROOM_STATE_ORDER = 5; // 已点菜
+    ROOM_STATE_PAY = 6; // 钱付好了
+}
+
+enum DISH_STATE {
+    DISH_STATE_ALL = 0;
+    DISH_STATE_COOK_CAN = 1; // 可以做了 
+    DISH_STATE_COOK_PROCEED = 2; // 制作中
+    DISH_STATE_COOK_FINISH = 3; // 做完了
+    DISH_STATE_DELIVER = 4; // 配送中
+    DISH_STATE_DELIVER_FINISH = 5; // 送到了
+    DISH_STATE_CANCEL_OF_COOK_CAN = 6; 
+    DISH_STATE_CANCEL_OF_COOK_PROCEED = 7; 
+    DISH_STATE_CANCEL_OF_COOK_FINISH = 8; 
+    DISH_STATE_CANCEL_OF_DELIVER = 9; 
+    DISH_STATE_CANCEL_OF_DELIVER_FINISH = 10; 
+}
+
+enum DISH_TYPE {
+    DISH_TYPE_ALL = 0;
+    DISH_TYPE_COLD = 2; // 冷菜
+    DISH_TYPE_HOT = 3; // 热菜
+    DISH_TYPE_SEAFOOD = 4; // 海鲜
+    DISH_TYPE_VEGETABLE = 5; // 蔬菜
+    DISH_TYPE_MEAT_ON_LAND = 6; // 陆地上的肉
 }
 
 message CommonResponse {
