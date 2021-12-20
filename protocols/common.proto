@@ -6,6 +6,7 @@ enum MEAL_TIME_TYPE {
     ROOM_TYPE_BREAKFAST = 0; // 早餐
     ROOM_TYPE_LUNCH = 1; // 午餐
     ROOM_TYPE_SUPPER = 2; // 晚餐
+    ROOM_TYPE_MEAL_AT_NIGHT = 3; // 夜宵
 }
 
 enum ROOM_STATE {

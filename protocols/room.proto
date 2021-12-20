@@ -4,7 +4,7 @@ package com.pb;
 
 import "common.proto";
 
-// repast/bookRoom
+// room/bookRoom
 message BookRoomRequest
 {
     int64 id = 1; // room id
@@ -16,7 +16,7 @@ message BookRoomRequest
     int64 take_order_person_id = 7; // 接单人 
 }
 
-// repast/updateBookRoomInfo
+// room/updateBookRoomInfo
 message UpdateBookRoomInfoRequest
 {
     int64 id = 1; // book id
@@ -28,20 +28,20 @@ message UpdateBookRoomInfoRequest
     int64 take_order_person_id = 7; // 接单人 
 }
 
-// repast/updateRoomState
+// room/updateRoomState
 message updateRoomStateRequest
 {
     int64 id = 1; // book id
     ROOM_STATE state = 2;
 }
 
-// repast/recordCaller
+// room/recordCaller
 message RecordCallerRequest
 {
     string mobile = 1;
 }
 
-// repast/fetchRoomList
+// room/fetchRoomList
 message FetchRoomListRequest
 {
     ROOM_STATE state = 1; // 包厢状态
@@ -73,7 +73,7 @@ message CustomerBriefInfo
     int32 number = 5;
 }
 
-// repast/fetchRoomInfo
+// room/fetchRoomInfo
 message FetchRoomDetailRequest
 {
     int64 id = 1;
@@ -113,7 +113,7 @@ message DrinkInfo
     int32 price = 3;
 }
 
-// repast/fetchCallerList
+// room/fetchCallerList
 message FetchCallerListRequest
 {
     string name = 1;
@@ -146,7 +146,18 @@ message CallerInfo
     repeated DrinkInfo drinkInfo = 12; // 存酒信息
 }
 
-// fetchQueuedCustomerList
+// room/queue
+message QueueRequest
+{
+    string name = 2; // 姓名
+    string mobile = 3; // 电话
+    int32 number = 4; // 人数
+    string remark = 5; // 备注
+    string book_time = 6; // 预定时间
+    int64 take_order_person_id = 7; // 接单人 
+}
+
+// room/fetchQueuedCustomerList
 message FetchQueuedCustomerListRequest
 {
 
@@ -172,6 +183,6 @@ message QueuedCustomerInfo
     string latest_call_time = 10; // 最后一次拨入时间
     string call_time = 11; // 拨入时间
     string arrive_time = 12; // 到达时间
-    string number = 13; // 就餐人数
+    int32 number = 13; // 就餐人数
     repeated DrinkInfo drinkInfo = 14; // 存酒信息
 }

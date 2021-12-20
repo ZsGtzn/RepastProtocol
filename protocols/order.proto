@@ -4,7 +4,7 @@ package com.pb;
 
 import "common.proto";
 
-// repast/fetchDishList
+// order/fetchDishList
 message FetchDishListRequest
 {
     DISH_TYPE dish_type = 1; // 类型
@@ -21,12 +21,12 @@ message DishInfo
 {
     int64 id = 1;
     string name = 2; // 名称
-    DISH_TYPE dish_type = 3; // 类别
+    repeated DISH_TYPE dish_type = 3; // 类别
     float price = 4; // 价格
     float discount = 5; // 折扣
 } 
 
-// repast/fetchOrderDishList
+// order/fetchOrderDishList
 message FetchOrderDishListRequest
 {
     DISH_STATE dish_state = 1;
@@ -44,10 +44,13 @@ message OrderDishInfo
     string name = 2;
     int32 number = 3;
     string remark = 4;
-    DISH_STATE dish_state = 5;
+    float price = 5; // 价格
+    float discount = 6; // 折扣
+    DISH_STATE dish_state = 7;
+    repeated DISH_TYPE dish_type = 8; // 类别
 }
 
-// repast/orderDish
+// order/orderDish
 message OrderDishRequest
 {
     int64 id = 1; // dish id
@@ -55,7 +58,7 @@ message OrderDishRequest
     string remark = 3; // 备注
 }
 
-// repast/updateDishState
+// order/updateDishState
 message UpdateDishStateRequest
 {
     repeated int64 id = 1; // order dish id
