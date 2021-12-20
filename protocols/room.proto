@@ -77,6 +77,8 @@ message CustomerBriefInfo
 message FetchRoomDetailRequest
 {
     int64 id = 1;
+    string date = 2;
+    MEAL_TIME_TYPE meal_type = 3;
 }
 
 message FetchRoomDetailResponse
@@ -88,7 +90,7 @@ message FetchRoomDetailResponse
     ROOM_STATE state = 5; // 
     MEAL_TIME_TYPE time_type = 6; // 就餐时间
     int64 take_order_person_id = 7; // 接单人 
-    repeated CustomerDetailInfo customer_detail_info = 8;
+    CustomerDetailInfo customer_detail_info = 8;
 }
 
 message CustomerDetailInfo
