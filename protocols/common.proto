@@ -3,10 +3,10 @@ syntax = "proto3";
 package com.pb;
 
 enum MEAL_TIME_TYPE {
-    ROOM_TYPE_BREAKFAST = 0; // 早餐
-    ROOM_TYPE_LUNCH = 1; // 午餐
-    ROOM_TYPE_SUPPER = 2; // 晚餐
-    ROOM_TYPE_MEAL_AT_NIGHT = 3; // 夜宵
+    MEAL_TYPE_BREAKFAST = 0; // 早餐
+    MEAL_TYPE_LUNCH = 1; // 午餐
+    MEAL_TYPE_SUPPER = 2; // 晚餐
+    MEAL_TYPE_MEAL_AT_NIGHT = 3; // 夜宵
 }
 
 enum ROOM_STATE {

@@ -69,7 +69,7 @@ message CustomerBriefInfo
     int64 id = 1;
     string name = 2;
     string mobile = 3;
-    string arrive_time = 4;
+    string book_time = 4;
     int32 number = 5;
 }
 
@@ -96,7 +96,7 @@ message CustomerDetailInfo
     int64 id = 1;
     string name = 2;
     string mobile = 3;
-    string arrive_time = 4;
+    string book_time = 4;
     int32 number = 5;
     int32 consume_times = 6; // 累计消费次数
     int32 cancel_order_times = 7; // 退订次数
@@ -179,10 +179,9 @@ message QueuedCustomerInfo
     int32 consume_money_total_amount = 6; // 累计消费金额
     int32 consume_one_person_money_amount = 7; // 人均消费
     int32 consume_one_room_money_amount = 8; // 桌均消费
-    int32 call_times = 9; // 拨入次数
-    string latest_call_time = 10; // 最后一次拨入时间
-    string call_time = 11; // 拨入时间
-    string arrive_time = 12; // 到达时间
-    int32 number = 13; // 就餐人数
-    repeated DrinkInfo drinkInfo = 14; // 存酒信息
+    string book_time = 9; // 到达时间
+    int32 number = 10; // 就餐人数
+    string remark = 11; // 备注
+    int64 take_order_person_id = 12; // 接单人 
+    repeated DrinkInfo drinkInfo = 13; // 存酒信息
 }
