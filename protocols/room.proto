@@ -89,8 +89,7 @@ message FetchRoomDetailResponse
     int32 capacity = 4;
     ROOM_STATE state = 5; // 
     MEAL_TIME_TYPE time_type = 6; // 就餐时间
-    int64 take_order_person_id = 7; // 接单人 
-    CustomerDetailInfo customer_detail_info = 8;
+    CustomerDetailInfo customer_detail_info = 7;
 }
 
 message CustomerDetailInfo
@@ -99,13 +98,15 @@ message CustomerDetailInfo
     string name = 2;
     string mobile = 3;
     string book_time = 4;
-    int32 number = 5;
-    int32 consume_times = 6; // 累计消费次数
-    int32 cancel_order_times = 7; // 退订次数
-    int32 consume_money_total_amount = 8; // 累计消费金额
-    int32 consume_one_person_money_amount = 9; // 人均消费
-    int32 consume_one_room_money_amount = 10; // 桌均消费
-    repeated DrinkInfo drinkInfo = 11; // 存酒信息
+    string remark = 5;
+    int32 number = 6;
+    int64 take_order_person_id = 7; // 接单人 
+    int32 consume_times = 8; // 累计消费次数
+    int32 cancel_order_times = 9; // 退订次数
+    int32 consume_money_total_amount = 10; // 累计消费金额
+    int32 consume_one_person_money_amount = 11; // 人均消费
+    int32 consume_one_room_money_amount = 12; // 桌均消费
+    repeated DrinkInfo drinkInfo = 113; // 存酒信息
 }
 
 message DrinkInfo
@@ -137,11 +138,11 @@ message CallerInfo
     int64 id = 1;
     string name = 2;
     string mobile = 3;
-    int32 consume_times = 4; // 累计消费次数
+    int32 consume_times = 4; // 消费次数
     int32 cancel_order_times = 5; // 退订次数
     int32 consume_money_total_amount = 6; // 累计消费金额
     int32 consume_one_person_money_amount = 7; // 人均消费
-    int32 consume_one_room_money_amount = 8; // 桌均消费
+    int32 consume_one_room_money_amount = 8; // 房均消费
     int32 call_times = 9; // 拨入次数
     string latest_call_time = 10; // 最后一次拨入时间
     string call_time = 11; // 拨入时间
