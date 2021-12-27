@@ -4,7 +4,7 @@ package com.pb;
 
 import "common.proto";
 
-// room/bookRoom
+// post room/bookRoom 预定包厢
 message BookRoomRequest
 {
     int64 id = 1; // room id
@@ -16,32 +16,20 @@ message BookRoomRequest
     int64 take_order_person_id = 7; // 接单人 
 }
 
-// room/updateBookRoomInfo
-message UpdateBookRoomInfoRequest
-{
-    int64 id = 1; // book id
-    string name = 2; // 姓名
-    string mobile = 3; // 电话
-    int32 number = 4; // 人数
-    string remark = 5; // 备注
-    string book_time = 6; // 预定时间
-    int64 take_order_person_id = 7; // 接单人 
-}
-
-// room/updateRoomState
-message updateRoomStateRequest
+// post room/updateRoomState 更新包厢状态
+message UpdateRoomStateRequest
 {
     int64 id = 1; // book id
     ROOM_STATE state = 2;
 }
 
-// room/recordCaller
+// post room/recordCaller 记录来电
 message RecordCallerRequest
 {
     string mobile = 1;
 }
 
-// room/fetchRoomList
+// get room/fetchRoomList 获取房间列表信息
 message FetchRoomListRequest
 {
     ROOM_STATE state = 1; // 包厢状态
@@ -73,7 +61,7 @@ message CustomerBriefInfo
     int32 number = 5;
 }
 
-// room/fetchRoomInfo
+// get room/fetchRoomInfo 获取房间详情
 message FetchRoomDetailRequest
 {
     int64 id = 1;
@@ -116,7 +104,7 @@ message DrinkInfo
     int32 price = 3;
 }
 
-// room/fetchCallerList
+// get room/fetchCallerList 获取来电信息列表
 message FetchCallerListRequest
 {
     string name = 1;
@@ -149,7 +137,7 @@ message CallerInfo
     repeated DrinkInfo drinkInfo = 12; // 存酒信息
 }
 
-// room/queue
+// post room/queue 顾客排队
 message QueueRequest
 {
     string name = 2; // 姓名
@@ -160,7 +148,7 @@ message QueueRequest
     int64 take_order_person_id = 7; // 接单人 
 }
 
-// room/fetchQueuedCustomerList
+// get room/fetchQueuedCustomerList 获取顾客排队信息
 message FetchQueuedCustomerListRequest
 {
 

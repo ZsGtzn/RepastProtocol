@@ -4,7 +4,7 @@ package com.pb;
 
 import "common.proto";
 
-// order/fetchDishList
+// get order/fetchDishList 获取菜单列表
 message FetchDishListRequest
 {
     DISH_TYPE dish_type = 1; // 类型
@@ -26,7 +26,7 @@ message DishInfo
     float discount = 5; // 折扣
 } 
 
-// order/fetchOrderDishList
+// get order/fetchOrderDishList 获取包厢已点菜单列表
 message FetchOrderDishListRequest
 {
     DISH_STATE dish_state = 1;
@@ -49,7 +49,7 @@ message OrderDishInfo
     repeated DISH_TYPE dish_type = 8; // 类别
 }
 
-// order/orderDish
+// post order/orderDish 点菜
 message OrderDishRequest
 {
     int64 id = 1; // dish id
@@ -57,7 +57,7 @@ message OrderDishRequest
     string remark = 3; // 备注
 }
 
-// order/updateDishState
+// post order/updateDishState 更新菜状态
 message UpdateDishStateRequest
 {
     repeated int64 id = 1; // order dish id
