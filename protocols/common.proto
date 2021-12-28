@@ -45,9 +45,9 @@ enum DISH_TYPE {
 
 enum PAY_CHANNEL {
     PAY_CHANNEL_CASH = 0;
-    PAY_CHANNEL_WECHAT = 0;
-    PAY_CHANNEL_ALI = 0;
-    PAY_CHANNEL_POS = 0;
+    PAY_CHANNEL_WECHAT = 1;
+    PAY_CHANNEL_ALI = 2;
+    PAY_CHANNEL_POS = 3;
 }
 
 message CommonResponse {
