@@ -59,15 +59,15 @@ message FetchOrderRecordDetailRequest
 
 message FetchOrderRecordDetailResponse
 {
-    repeated RecordOrderDishInfoList recordOrderDishInfoList = 1;
+    repeated OrderRecordInfo order_record_info = 1;
 }
 
-message RecordOrderDishInfoList
+message OrderRecordInfo
 {
     int64 id = 1; // 这里的id是此次结算的id
     int32 total_price = 2; // 总价格
     PAY_CHANNEL pay_channel = 3; // 支付渠道
-    repeated RecordOrderDishInfo recordOrderDishInfo = 4;
+    repeated RecordOrderDishInfo record_order_dish_info = 4;
 }
 
 message RecordOrderDishInfo
