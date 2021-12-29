@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+package com.pb;
+
+import "common.proto";
+
+enum OPERAETE_RECORD_TYPE 
+{
+    OPERAETE_RECORD_TYPE_ORDER_ROOM = 0; // 订房
+    OPERAETE_RECORD_TYPE_ORDER_MEAL = 1; // 点菜
+    OPERAETE_RECORD_TYPE_ORDER_PAY = 2; // 支付
+}
+
+message OperateRecord
+{
+    string date_time = 1; // 记录的时间
+    OPERAETE_RECORD_TYPE operaete_record_type = 2; // 记录类型
+    string content = 3; // 内容
+}
+
+
+// record/fetchOrderRecordList 获取订单记录
+message FetchOrderRecordListRequest
+{
+    string date_time = 1; // 日期
+    int64 room_id = 2; // 房间id
+    string mobile = 3; // 电话
+    string order_id = 4; // 订单号(这里的订单号跟着预定房间的订单号走)
+    MEAL_TIME_TYPE meal_time_type = 5; // 就餐时间
+}
+
+message FetchOrderRecordListReponse
+{
+    repeated OrderRecord orderRecord = 1;
+}
+
+message OrderRecord
+{
+    int64 id = 1; // 订单号(这里的订单号跟着预定房间的订单号走)
+    int64 room_id = 2;
+    string room_name = 3;
+    MEAL_TIME_TYPE meal_time_type = 4;
+    string customer_name = 5;
+    string customer_mobile = 6;
+    string customer_book_time = 7;
+    string customer_remark = 8;
+    int32 customer_number = 9;
+    int32 total_price = 10;
+}
+
+// record/fetchOrderRecordDetail
+message FetchOrderRecordDetailRequest
+{
+    int64 id = 1; // 订单号(这里的订单号跟着预定房间的订单号走)
+}
+
+message FetchOrderRecordDetailResponse
+{
+    repeated RecordOrderDishInfoList recordOrderDishInfoList = 1;
+}
+
+message RecordOrderDishInfoList
+{
+    int64 id = 1; // 这里的id是此次结算的id
+    int32 total_price = 2; // 总价格
+    PAY_CHANNEL pay_channel = 3; // 支付渠道
+    repeated RecordOrderDishInfo recordOrderDishInfo = 4;
+}
+
+message RecordOrderDishInfo
+{
+    int64 id = 1;
+    string name = 2; // 名称
+    repeated DISH_TYPE dish_type = 3; // 类别
+    float price = 4; // 价格
+    float discount = 5; // 折扣
+    int32 number = 6; // 份数
+    DISH_STATE dish_state = 7;
+}
+
+// record/fetchRoomOperateRecordList
+message FetchRoomOperateRecordListRequest
+{
+    int64 id = 1; // 订单号(这里的订单号跟着预定房间的订单号走)
+}
+
+message FetchRoomOperateRecordListResponse
+{
+    repeated OperateRecord operateRecord = 1;
+}

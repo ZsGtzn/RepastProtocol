@@ -33,7 +33,7 @@ message RecordCallerRequest
 message FetchRoomListRequest
 {
     ROOM_STATE state = 1; // 包厢状态
-    MEAL_TIME_TYPE time_type = 2; // 就餐时间
+    MEAL_TIME_TYPE meal_time_type = 2; // 就餐时间
     int32 floor = 3; // 楼层
 }
 
@@ -76,7 +76,7 @@ message FetchRoomDetailResponse
     string remark = 3;
     int32 capacity = 4;
     ROOM_STATE state = 5; // 
-    MEAL_TIME_TYPE time_type = 6; // 就餐时间
+    MEAL_TIME_TYPE meal_time_type = 6; // 就餐时间
     CustomerDetailInfo customer_detail_info = 7;
 }
 
