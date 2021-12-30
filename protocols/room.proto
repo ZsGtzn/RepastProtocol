@@ -151,12 +151,12 @@ message QueueRequest
 // get room/fetchQueuedCustomerList 获取顾客排队信息
 message FetchQueuedCustomerListRequest
 {
-
+    
 }
 
 message FetchQueuedCustomerListResponse
 {
-    repeated QueuedCustomerInfo queuedCustomerInfo = 1;
+    repeated QueuedCustomerInfo queued_customer_info = 1;
 }
 
 
