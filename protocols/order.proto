@@ -14,7 +14,7 @@ message FetchDishListRequest
 
 message FetchDishListResponse
 {
-    repeated DishInfo dishInfo = 1;
+    repeated DishInfo dish_info = 1;
 }
 
 message DishInfo
@@ -34,7 +34,7 @@ message FetchOrderDishListRequest
 
 message FetchOrderDishListResponse
 {
-    repeated OrderDishInfo orderDishInfo = 1;
+    repeated OrderDishInfo order_dish_info = 1;
 }
 
 message OrderDishInfo

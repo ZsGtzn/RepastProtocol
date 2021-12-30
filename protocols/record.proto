@@ -34,7 +34,7 @@ message FetchOrderRecordListRequest
 message FetchOrderRecordListReponse
 {
     int32 pages = 1; // 一共有几页
-    repeated OrderRecord orderRecord = 2;
+    repeated OrderRecord order_record = 2;
 }
 
 message OrderRecord
@@ -92,5 +92,5 @@ message FetchRoomOperateRecordListRequest
 message FetchRoomOperateRecordListResponse
 {
     int32 pages = 1; // 一共有几页
-    repeated OperateRecord operateRecord = 2;
+    repeated OperateRecord operate_record = 2;
 }

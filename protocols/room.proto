@@ -94,7 +94,7 @@ message CustomerDetailInfo
     int32 consume_money_total_amount = 10; // 累计消费金额
     int32 consume_one_person_money_amount = 11; // 人均消费
     int32 consume_one_room_money_amount = 12; // 桌均消费
-    repeated DrinkInfo drinkInfo = 113; // 存酒信息
+    repeated DrinkInfo drink_info = 113; // 存酒信息
 }
 
 message DrinkInfo
@@ -134,7 +134,7 @@ message CallerInfo
     int32 call_times = 9; // 拨入次数
     string latest_call_time = 10; // 最后一次拨入时间
     string call_time = 11; // 拨入时间
-    repeated DrinkInfo drinkInfo = 12; // 存酒信息
+    repeated DrinkInfo drink_info = 12; // 存酒信息
 }
 
 // post room/queue 顾客排队
@@ -151,7 +151,7 @@ message QueueRequest
 // get room/fetchQueuedCustomerList 获取顾客排队信息
 message FetchQueuedCustomerListRequest
 {
-    
+
 }
 
 message FetchQueuedCustomerListResponse
@@ -174,5 +174,5 @@ message QueuedCustomerInfo
     int32 number = 10; // 就餐人数
     string remark = 11; // 备注
     int64 take_order_person_id = 12; // 接单人 
-    repeated DrinkInfo drinkInfo = 13; // 存酒信息
+    repeated DrinkInfo drink_info = 13; // 存酒信息
 }
