@@ -4,17 +4,17 @@ package com.pb;
 
 import "common.proto";
 
-enum OPERAETE_RECORD_TYPE 
+enum OPERATE_RECORD_TYPE 
 {
-    OPERAETE_RECORD_TYPE_ORDER_ROOM = 0; // 订房
-    OPERAETE_RECORD_TYPE_ORDER_MEAL = 1; // 点菜
-    OPERAETE_RECORD_TYPE_ORDER_PAY = 2; // 支付
+    OPERATE_RECORD_TYPE_ORDER_ROOM = 0; // 订房
+    OPERATE_RECORD_TYPE_ORDER_MEAL = 1; // 点菜
+    OPERATE_RECORD_TYPE_ORDER_PAY = 2; // 支付
 }
 
 message OperateRecord
 {
     string date_time = 1; // 记录的时间
-    OPERAETE_RECORD_TYPE operaete_record_type = 2; // 记录类型
+    OPERATE_RECORD_TYPE operaete_record_type = 2; // 记录类型
     string content = 3; // 内容
 }
 
