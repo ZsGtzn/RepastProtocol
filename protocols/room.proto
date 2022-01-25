@@ -14,6 +14,7 @@ message BookRoomRequest
     string remark = 5; // 备注
     string book_time = 6; // 预定时间
     int64 take_order_person_id = 7; // 接单人 
+    MEAL_TIME_TYPE meal_time_type = 8;
 }
 
 // post room/updateRoomState 更新包厢状态
