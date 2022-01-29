@@ -35,7 +35,8 @@ message FetchRoomListRequest
 {
     ROOM_STATE state = 1; // 包厢状态
     MEAL_TIME_TYPE meal_time_type = 2; // 就餐时间
-    int32 floor = 3; // 楼层
+    optional int32 floor = 3; // 楼层
+    string reserve_date = 4; // 预定日期（YYYY-mm-dd）
 }
 
 message FetchRoomListResponse
