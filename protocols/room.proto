@@ -51,7 +51,7 @@ message RoomBriefInfo
     string remark = 3;
     int32 capacity = 4;
     ROOM_STATE state = 5;
-    repeated CustomerBriefInfo customer_info = 6;
+    optional CustomerBriefInfo customer_info = 6;
 }
 
 message CustomerBriefInfo
