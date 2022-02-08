@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package com.pb;
+
+import "common.proto";
+
+// post api/logBUser/getCode
+message getLoginCodeRequest
+{
+    string mobile = 1;
+}
+
+// post logBUser/bUserLogin
+message loginRequest
+{
+    string mobile = 1;
+    string code = 2;
+}
+
+message loginRequestResponse
+{
+    UserInfo user_info = 1;
+}
+
+message UserInfo
+{
+    optional int32 authority = 1; // 账号权限: 1超级管理员，2B端总账户，3B端管理员
+    optional int32 company_id = 1; // 餐厅公司ID
+    optional string create_time = 1; // 创建时间
+    optional int32 enable_status = 1; // 状态：默认1正常，2停用
+    optional int32 id = 1; // B端用户ID
+    optional string mobile = 1; // 账号 - 手机号
+    optional string name = 1; // 姓名
+    optional int32 restaurant_id = 1; // 酒店ID
+    optional int32 user_id = 1; // 用户ID
+}
+
+// get logBUser/bUserLogOut
+message logoutRequest
+{
+
+} 

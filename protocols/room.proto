@@ -12,9 +12,10 @@ message BookRoomRequest
     string mobile = 3; // 电话
     int32 number = 4; // 人数
     string remark = 5; // 备注
-    string book_time = 6; // 预定时间
-    int64 take_order_person_id = 7; // 接单人 
-    MEAL_TIME_TYPE meal_time_type = 8;
+    string book_date = 6; // 预定时间（yyyy-MM-dd）
+    string book_time = 7; // 预定时间（hh:mm:ss）
+    int64 take_order_person_id = 8; // 接单人
+    MEAL_TIME_TYPE meal_time_type = 9;
 }
 
 // post room/updateRoomState 更新包厢状态
@@ -36,7 +37,7 @@ message FetchRoomListRequest
     ROOM_STATE state = 1; // 包厢状态
     MEAL_TIME_TYPE meal_time_type = 2; // 就餐时间
     optional int32 floor = 3; // 楼层
-    string reserve_date = 4; // 预定日期（YYYY-mm-dd）
+    string reserve_date = 4; // 预定日期（yyyy-MM-dd）
 }
 
 message FetchRoomListResponse
@@ -67,8 +68,8 @@ message CustomerBriefInfo
 message FetchRoomDetailRequest
 {
     int64 id = 1;
-    string date = 2;
-    MEAL_TIME_TYPE meal_type = 3;
+    string date = 2; // 预定日期（yyyy-MM-dd）
+    MEAL_TIME_TYPE meal_type = 3; //
 }
 
 message FetchRoomDetailResponse
@@ -79,7 +80,7 @@ message FetchRoomDetailResponse
     int32 capacity = 4;
     ROOM_STATE state = 5; // 
     MEAL_TIME_TYPE meal_time_type = 6; // 就餐时间
-    CustomerDetailInfo customer_detail_info = 7;
+    optional CustomerDetailInfo customer_detail_info = 7;
 }
 
 message CustomerDetailInfo
@@ -87,7 +88,7 @@ message CustomerDetailInfo
     int64 id = 1;
     string name = 2;
     string mobile = 3;
-    string book_time = 4;
+    string book_time = 4; // 预定日期（yyyy-MM-dd hh:mm:ss）
     string remark = 5;
     int32 number = 6;
     int64 take_order_person_id = 7; // 接单人 
@@ -113,14 +114,15 @@ message FetchCallerListRequest
     string mobile = 2;
     string begin_time = 3;
     string end_time = 4;
-    int32 size = 5;
+    int32 pageNum = 5;
+    int32 pageSize = 6;
 }
 
 message FetchCallerListResponse
 {
     int32 total = 1;
-    int32 count = 2;
-    repeated CallerInfo caller_info = 6;
+    int32 size = 2;
+    repeated CallerInfo records = 6;
 }
 
 message CallerInfo
@@ -146,8 +148,9 @@ message QueueRequest
     string mobile = 3; // 电话
     int32 number = 4; // 人数
     string remark = 5; // 备注
-    string book_time = 6; // 预定时间
-    int64 take_order_person_id = 7; // 接单人 
+    string meal_time_type = 6; //
+    string book_time = 7; // 预定时间
+    int64 take_order_person_id = 8; // 接单人
 }
 
 // get room/fetchQueuedCustomerList 获取顾客排队信息
