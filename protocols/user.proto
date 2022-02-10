@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.pb;
+
+// GET /api/logBUser/queryBUserList
+message fetchUserListRequest
+{
+
+}
+
+message fetchUserListResponse
+{
+    repeated User user = 1;
+}
+
+message User
+{
+    string createTime = 1; // 创建时间
+    int32 enableStatus = 2; // 启/停用状态：默认1启用，2停用
+    int64 id = 3; // 主键
+    string mobile = 4; // 账号-手机号
+    string name = 5; // 姓名
+    string password = 6; // 密码
+}

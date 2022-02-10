@@ -47,7 +47,7 @@ message FetchRoomListResponse
 
 message RoomBriefInfo
 {
-    int64 id = 1;
+    int64 id = 1; // room id
     string name = 2;
     string remark = 3;
     int32 capacity = 4;
@@ -57,17 +57,18 @@ message RoomBriefInfo
 
 message CustomerBriefInfo
 {
-    int64 id = 1;
+    int64 id = 1; // book id
     string name = 2;
     string mobile = 3;
-    string book_time = 4;
-    int32 number = 5;
+    string reserve_date = 4;
+    string reserve_time = 5;
+    int32 number = 6;
 }
 
 // get room/fetchRoomInfo 获取房间详情
 message FetchRoomDetailRequest
 {
-    int64 id = 1;
+    int64 id = 1; // room id
     string date = 2; // 预定日期（yyyy-MM-dd）
     MEAL_TIME_TYPE meal_type = 3; //
 }
@@ -85,19 +86,20 @@ message FetchRoomDetailResponse
 
 message CustomerDetailInfo
 {
-    int64 id = 1;
+    int64 id = 1; // book id
     string name = 2;
     string mobile = 3;
-    string book_time = 4; // 预定日期（yyyy-MM-dd hh:mm:ss）
-    string remark = 5;
-    int32 number = 6;
-    int64 take_order_person_id = 7; // 接单人 
-    int32 consume_times = 8; // 累计消费次数
-    int32 cancel_order_times = 9; // 退订次数
-    int32 consume_money_total_amount = 10; // 累计消费金额
-    int32 consume_one_person_money_amount = 11; // 人均消费
-    int32 consume_one_room_money_amount = 12; // 桌均消费
-    repeated DrinkInfo drink_info = 113; // 存酒信息
+    string reserve_date = 4;
+    string reserve_time = 5;
+    string remark = 6;
+    int32 number = 7;
+    int64 take_order_person_id = 8; // 接单人 
+    int32 consume_times = 9; // 累计消费次数
+    int32 cancel_order_times = 10; // 退订次数
+    int32 consume_money_total_amount = 11; // 累计消费金额
+    int32 consume_one_person_money_amount = 12; // 人均消费
+    int32 consume_one_room_money_amount = 13; // 桌均消费
+    repeated DrinkInfo drink_info = 14; // 存酒信息
 }
 
 message DrinkInfo
