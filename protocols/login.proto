@@ -25,14 +25,14 @@ message loginRequestResponse
 message UserInfo
 {
     optional int32 authority = 1; // 账号权限: 1超级管理员，2B端总账户，3B端管理员
-    optional int32 company_id = 1; // 餐厅公司ID
-    optional string create_time = 1; // 创建时间
-    optional int32 enable_status = 1; // 状态：默认1正常，2停用
-    optional int32 id = 1; // B端用户ID
-    optional string mobile = 1; // 账号 - 手机号
-    optional string name = 1; // 姓名
-    optional int32 restaurant_id = 1; // 酒店ID
-    optional int32 user_id = 1; // 用户ID
+    optional int32 company_id = 2; // 餐厅公司ID
+    optional string create_time = 3; // 创建时间
+    optional int32 enable_status = 4; // 状态：默认1正常，2停用
+    optional int32 id = 5; // B端用户ID
+    optional string mobile = 6; // 账号 - 手机号
+    optional string name = 7; // 姓名
+    optional int32 restaurant_id = 8; // 酒店ID
+    optional int32 user_id = 9; // 用户ID
 }
 
 // get logBUser/bUserLogOut

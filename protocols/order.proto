@@ -29,7 +29,8 @@ message DishInfo
 // get order/fetchOrderDishList 获取包厢已点菜单列表
 message FetchOrderDishListRequest
 {
-    DISH_STATE dish_state = 1;
+    int64 id = 1;
+    DISH_STATE dish_state = 2;
 }
 
 message FetchOrderDishListResponse
@@ -52,7 +53,8 @@ message OrderDishInfo
 // post order/orderDish 点菜
 message OrderDishRequest
 {
-    int64 id = 1; // dish id
+    int64 id = 1; 
+    int64 dish_id = 2; //
     float number = 2; // 数量
     string remark = 3; // 备注
 }
@@ -60,7 +62,8 @@ message OrderDishRequest
 // post order/updateDishState 更新菜状态
 message UpdateDishStateRequest
 {
-    repeated int64 id = 1; // order dish id
+    int64 id = 1; 
+    repeated int64 dish_id = 1; // order dish id
     DISH_STATE dish_state = 2; // 状态
     string reason = 3; // 原因
 }
