@@ -24,6 +24,7 @@ message DishInfo
     repeated DISH_TYPE dish_type = 3; // 类别
     float price = 4; // 价格
     float discount = 5; // 折扣
+    int64 number = 6; // 数量
 } 
 
 // get order/fetchOrderDishList 获取包厢已点菜单列表

@@ -116,8 +116,8 @@ message FetchCallerListRequest
     string mobile = 2;
     string begin_time = 3;
     string end_time = 4;
-    int32 pageNum = 5;
-    int32 pageSize = 6;
+    int32 page_num = 5;
+    int32 page_size = 6;
 }
 
 message FetchCallerListResponse
