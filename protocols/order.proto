@@ -56,15 +56,15 @@ message OrderDishRequest
 {
     int64 id = 1; 
     int64 dish_id = 2; //
-    float number = 2; // 数量
-    string remark = 3; // 备注
+    float number = 3; // 数量
+    string remark = 4; // 备注
 }
 
 // post order/updateDishState 更新菜状态
 message UpdateDishStateRequest
 {
     int64 id = 1; 
-    repeated int64 dish_id = 1; // order dish id
-    DISH_STATE dish_state = 2; // 状态
-    string reason = 3; // 原因
+    repeated string dish_id = 2; // order dish id
+    DISH_STATE dish_state = 3; // 状态
+    string reason = 4; // 原因
 }
