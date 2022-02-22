@@ -37,11 +37,11 @@ enum DISH_STATE {
 
 enum DISH_TYPE {
     DISH_TYPE_ALL = 0;
-    DISH_TYPE_COLD = 2; // 冷菜
-    DISH_TYPE_HOT = 3; // 热菜
-    DISH_TYPE_SEAFOOD = 4; // 海鲜
-    DISH_TYPE_VEGETABLE = 5; // 蔬菜
-    DISH_TYPE_MEAT_ON_LAND = 6; // 陆地上的肉
+    DISH_TYPE_COLD = 1; // 冷菜
+    DISH_TYPE_HOT = 2; // 热菜
+    DISH_TYPE_SEAFOOD = 3; // 海鲜
+    DISH_TYPE_VEGETABLE = 4; // 蔬菜
+    DISH_TYPE_MEAT_ON_LAND = 5; // 陆地上的肉
 }
 
 enum PAY_CHANNEL {
@@ -49,6 +49,29 @@ enum PAY_CHANNEL {
     PAY_CHANNEL_WECHAT = 1;
     PAY_CHANNEL_ALI = 2;
     PAY_CHANNEL_POS = 3;
+}
+
+enum RESTAURANT_STATE
+{
+    RESTAURANT_STATE_ALL = 0;
+    RESTAURANT_STATE_OPEN = 1; // 正常营业
+    RESTAURANT_STATE_SUSPEND = 2; // 暂停营业
+} 
+
+
+enum AUTHORITY 
+{
+    AUTHORITY_ALL = 0;
+    AUTHORITY_BOOK_ROOM = 1;
+    AUTHORITY_ORDER_DISH = 2;
+    AUTHORITY_PAY = 3;
+}
+
+enum EMPLOYEE_STATE
+{
+    EMPLOYEE_STATE_ALL = 0;
+    EMPLOYEE_STATE_NORMAL = 1;
+    EMPLOYEE_STATE_SUSPEND = 2;
 }
 
 message CommonResponse {
