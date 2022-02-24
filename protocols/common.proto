@@ -82,9 +82,11 @@ enum ROOM_TYPE
     ROOM_TYPE_SEAT = 3; // 散座
 }
 
-message CommonResponse {
-    int32 code = 1; // return 0 if success
-    string msg = 2;
-    string data_type = 3;
-    bytes data = 4;
+enum DISH_UNIT
+{
+    DISH_UNIT_ALL = 0;
+    DISH_UNIT_SHARE = 1; // 份
+    DISH_UNIT_GRAM = 2; // 克
+    DISH_UNIT_KILOGRAM = 3; // 千克
+    DISH_UNIT_JIN = 4; // 斤
 }

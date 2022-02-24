@@ -44,11 +44,14 @@ message OrderDishInfo
     int64 id = 1;
     string name = 2;
     int32 number = 3;
-    string remark = 4;
-    float price = 5; // 价格
-    float discount = 6; // 折扣
+    string dish_remark = 4;
+    string price = 5; // 价格
+    string discount = 6; // 折扣
     DISH_STATE dish_state = 7;
-    repeated DISH_TYPE dish_type = 8; // 类别
+    string dish_img = 8;
+    repeated dish_img_all = 9;
+    DISH_UNIT dish_unit = 10; // 计量单位
+    repeated DISH_TYPE dish_type = 11; // 类别
 }
 
 // post order/orderDish 点菜
