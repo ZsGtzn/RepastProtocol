@@ -56,8 +56,7 @@ enum RESTAURANT_STATE
     RESTAURANT_STATE_ALL = 0;
     RESTAURANT_STATE_OPEN = 1; // 正常营业
     RESTAURANT_STATE_SUSPEND = 2; // 暂停营业
-} 
-
+}
 
 enum AUTHORITY 
 {
