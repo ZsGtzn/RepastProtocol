@@ -37,9 +37,6 @@ if (configFileName != null && configFileName != undefined) {
         }
     } catch (error) {
         console.error(`${configFileName} should be json string`);
-
-        //
-        return;
     }
 }
 
