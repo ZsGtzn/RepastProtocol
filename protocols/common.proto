@@ -45,17 +45,18 @@ enum DISH_TYPE {
 }
 
 enum PAY_CHANNEL {
-    PAY_CHANNEL_CASH = 0;
-    PAY_CHANNEL_WECHAT = 1;
-    PAY_CHANNEL_ALI = 2;
-    PAY_CHANNEL_POS = 3; // 刷信用卡
+    PAY_CHANNEL_CASH = 0; // 现金支付
+    PAY_CHANNEL_WECHAT = 1; // 微信支付（c端支付）
+    PAY_CHANNEL_ALI = 2; // 支付宝支付（c端支付）
+    PAY_CHANNEL_POS = 3; // 信用卡
     PAY_CHANNEL_SIGN_BILL = 4; // 挂账
-    PAY_CHANNEL_ALI_SCAN = 5;
-    PAY_CHANNEL_WECHAT_SCAN = 6;
-    PAY_CHANNEL_LONGZHIFU_SCAN = 7;
-    PAY_CHANNEL_MOBILE_ALI_SCAN = 8; //
-    PAY_CHANNEL_MOBILE_WECHAT_SCAN = 9;
-    PAY_CHANNEL_MOBILE_LONGZHIFU_SCAN = 10;
+    PAY_CHANNEL_ALI_SCAN = 5; // 支付宝支付（扫码盒子）
+    PAY_CHANNEL_WECHAT_SCAN = 6; // 微信支付（扫码盒子）
+    PAY_CHANNEL_LONGZHIFU_SCAN = 7; // 龙支付（扫码盒子）
+    PAY_CHANNEL_MOBILE_ALI_SCAN = 8; // 支付宝支付（扫房间二维码）
+    PAY_CHANNEL_MOBILE_WECHAT_SCAN = 9; // 微信支付（扫房间二维码）
+    PAY_CHANNEL_MOBILE_LONGZHIFU_SCAN = 10; // 龙支付（扫房间二维码）
+    PAY_CHANNEL_LONGZHIFU = 11; // 龙支付（c端支付）
 }
 
 enum RESTAURANT_STATE
