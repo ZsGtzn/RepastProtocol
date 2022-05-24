@@ -40,7 +40,7 @@ enum DISH_TYPE {
     DISH_TYPE_COLD = 1; // 冷菜
     DISH_TYPE_HOT = 2; // 热菜
     DISH_TYPE_SEAFOOD = 3; // 海鲜
-    DISH_TYPE_VEGETABLE = 4; // 蔬菜
+    DISH_TYPE_DRINK = 4; // 酒水
     DISH_TYPE_MEAT_ON_LAND = 5; // 陆地上的肉
 }
 
